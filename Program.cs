@@ -1,4 +1,3 @@
-using BlazorServerSignalRApp.Data;
 using Microsoft.AspNetCore.ResponseCompression;
 using BlazorServerSignalRApp.Server.Hubs;
 
@@ -13,7 +12,6 @@ namespace BlazorServerSignalRApp
 			// Add services to the container.
 			builder.Services.AddRazorPages();
 			builder.Services.AddServerSideBlazor();
-			builder.Services.AddSingleton<WeatherForecastService>();
 			builder.Services.AddResponseCompression(opts =>
 			{
 				opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
