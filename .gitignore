@@ -1,2 +1,6 @@
-obj/
-bin/
+BlazorServerSignalRApp/obj/
+BlazorServerSignalRApp/bin/
+DataAccessLibrary/obj/
+DataAccessLibrary/bin/
+.vs/
+BlazorServerSignalRApp.sln
