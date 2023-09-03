@@ -24,5 +24,13 @@ namespace DataAccessLibrary
 							VALUES (@MessageText, @UserName, @SendTime);";
 			return _db.SaveData(sql, message);
 		}
-	}
+
+        public Task<List<MessageModel>> GetLastHundredMessages()
+        {
+			string sql = @"SELECT TOP 100 *
+						   FROM dbo.Messages
+						   ORDER BY Id DESC";
+			return _db.LoadData<MessageModel, dynamic>(sql, new { });
+        }
+    }
 }

@@ -71,7 +71,7 @@
         hubConnection = new HubConnectionBuilder()
             .WithUrl(Navigation.ToAbsoluteUri("/chathub"))
             .Build();
-        messages = await _db.GetMessages();
+        messages = await _db.GetLastHundredMessages();
 
         hubConnection.On<string, string>("ReceiveMessage", (user, message) =>
         {
