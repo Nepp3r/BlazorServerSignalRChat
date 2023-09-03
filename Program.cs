@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.ResponseCompression;
 using BlazorServerSignalRApp.Server.Hubs;
+using DataAccessLibrary;
 
 namespace BlazorServerSignalRApp
 {
@@ -12,6 +13,8 @@ namespace BlazorServerSignalRApp
 			// Add services to the container.
 			builder.Services.AddRazorPages();
 			builder.Services.AddServerSideBlazor();
+			builder.Services.AddTransient<ISqlDataAccess, SqlDataAccess>();
+			builder.Services.AddTransient<IMessageData, MessageData>();
 			builder.Services.AddResponseCompression(opts =>
 			{
 				opts.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(
